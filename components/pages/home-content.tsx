@@ -49,6 +49,15 @@ export function HomeContent() {
             <Link href="/guide">Read the guide</Link>
           </Button>
         </div>
+        <p className="mt-4 text-sm text-slate-500">
+          Want your own instance?{" "}
+          <Link
+            href="/self-host"
+            className="text-blue-400 hover:text-blue-300 underline underline-offset-2"
+          >
+            Self-host on Vercel
+          </Link>
+        </p>
       </div>
 
       {/* Intro */}

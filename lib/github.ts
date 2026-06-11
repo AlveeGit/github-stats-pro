@@ -314,6 +314,9 @@ export async function getTopLanguages(
       }));
   } catch (err: any) {
     if (err instanceof GitHubError) throw err;
+    if (err.message?.includes("Could not resolve to a User")) {
+      throw new GitHubError(`User "${username}" not found`, 404);
+    }
     throw new GitHubError(err.message ?? "GitHub API error", 500);
   }
 }
@@ -344,6 +347,8 @@ export async function getStreak(username: string): Promise<StreakData> {
   try {
     const result: any = await client(STREAK_QUERY, { login: username });
     const user = result.user;
+    console.log("streak user", user);
+
     if (!user) throw new GitHubError(`User "${username}" not found`, 404);
 
     const calendar = user.contributionsCollection.contributionCalendar;
@@ -403,6 +408,9 @@ export async function getStreak(username: string): Promise<StreakData> {
     };
   } catch (err: any) {
     if (err instanceof GitHubError) throw err;
+    if (err.message?.includes("Could not resolve to a User")) {
+      throw new GitHubError(`User "${username}" not found`, 404);
+    }
     throw new GitHubError(err.message ?? "GitHub API error", 500);
   }
 }

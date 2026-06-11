@@ -21,8 +21,18 @@ async function getFonts(): Promise<SatoriOptions["fonts"]> {
         "https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.18/files/inter-latin-700-normal.woff",
       ).then((r) => r.arrayBuffer()),
     ]).then(([regular, bold]) => [
-      { name: "Inter", data: regular, weight: 400 as const, style: "normal" as const },
-      { name: "Inter", data: bold, weight: 700 as const, style: "normal" as const },
+      {
+        name: "Inter",
+        data: regular,
+        weight: 400 as const,
+        style: "normal" as const,
+      },
+      {
+        name: "Inter",
+        data: bold,
+        weight: 700 as const,
+        style: "normal" as const,
+      },
     ]);
   }
   return fontsPromise;
@@ -67,7 +77,10 @@ export function renderErrorSvg(
 </svg>`;
 }
 
-export function getErrorMessage(err: unknown, fallback = "something went wrong"): string {
+export function getErrorMessage(
+  err: unknown,
+  fallback = "something went wrong",
+): string {
   if (err instanceof GitHubError) {
     if (err.status === 404) {
       return err.message.includes("not found")
@@ -77,6 +90,7 @@ export function getErrorMessage(err: unknown, fallback = "something went wrong")
     if (err.status === 403 || err.status === 429) {
       return "Error: rate limited, try again later";
     }
+
     return `Error: ${err.message}`;
   }
   if (err instanceof Error) return `Error: ${err.message}`;

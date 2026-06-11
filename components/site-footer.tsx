@@ -9,6 +9,7 @@ const FOOTER_LINKS = [
   { href: "/guide", label: "How to Use" },
   { href: "/cards", label: "Card Types" },
   { href: "/examples", label: "Examples" },
+  { href: "/self-host", label: "Self-Host" },
   { href: "/builder", label: "Builder" },
 ] as const;
 
@@ -60,6 +61,7 @@ export function SiteFooter() {
 
         <div className="mt-8 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
           <p>© {new Date().getFullYear()} GitHub Stats Pro. MIT License.</p>
+          <p>Built with ❤️ by <a href="https://github.com/alveegit" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-300 transition-colors">Alvee Kabir</a></p>
           <a
             href={GITHUB_REPO}
             target="_blank"

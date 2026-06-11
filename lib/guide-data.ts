@@ -111,7 +111,8 @@ export const TIPS = [
   },
   {
     title: "Deploy your own",
-    body: "Fork the repo, add a GitHub PAT and optional Upstash Redis, then deploy to Vercel in minutes.",
+    body: "Fork the repo, add a GitHub PAT and optional Upstash Redis, then deploy to Vercel. See the Self-Host guide for step-by-step instructions.",
+    href: "/self-host",
   },
 ] as const;
 

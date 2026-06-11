@@ -122,7 +122,7 @@ function ThemeGrid({
   onSelect: (name: string) => void;
 }) {
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 max-h-52 overflow-y-auto pr-1">
+    <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 max-h-52 overflow-y-auto p-2">
       {Object.entries(themes).map(([key, theme]) => (
         <button
           key={key}
@@ -293,8 +293,8 @@ export function Configurator() {
           Card Builder
         </h1>
         <p className="mt-2 text-slate-400 text-sm sm:text-base max-w-2xl">
-          Customize your GitHub stats card live. Copy the URL or Markdown snippet
-          when you&apos;re done.
+          Customize your GitHub stats card live. Copy the URL or Markdown
+          snippet when you&apos;re done.
         </p>
       </div>
 
@@ -306,7 +306,9 @@ export function Configurator() {
             <Card className="bg-[#151b27] border-slate-800/80 ring-slate-800/60">
               <CardHeader>
                 <CardTitle className="text-slate-100">
-                  {config.cardType === "repo" ? "Repository" : "GitHub Username"}
+                  {config.cardType === "repo"
+                    ? "Repository"
+                    : "GitHub Username"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -315,7 +317,9 @@ export function Configurator() {
                     {config.cardType === "repo" ? "Owner" : "Username"}
                   </label>
                   <Input
-                    placeholder={config.cardType === "repo" ? "vercel" : "octocat"}
+                    placeholder={
+                      config.cardType === "repo" ? "vercel" : "octocat"
+                    }
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     className="bg-[#0a0e17] border-slate-700/60 text-slate-100 placeholder:text-slate-600"

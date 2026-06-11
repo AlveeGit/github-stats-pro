@@ -69,6 +69,14 @@ export function ExamplesContent() {
             <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">
               {tip.body}
             </p>
+            {"href" in tip && tip.href && (
+              <Link
+                href={tip.href}
+                className="inline-block mt-2 text-xs text-blue-400 hover:underline"
+              >
+                Learn more →
+              </Link>
+            )}
           </div>
         ))}
       </div>
